@@ -19,8 +19,8 @@
 	}
 
 	onMount(() => {
-		// setInterval(start_fireworks, 378);
-		// setInterval(start_fireworks, 609);
+		setInterval(start_fireworks, 378);
+		setInterval(start_fireworks, 609);
 	});
 </script>
 
