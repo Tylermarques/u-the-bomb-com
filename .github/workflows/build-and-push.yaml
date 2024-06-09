@@ -35,9 +35,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
-        permissions: write-all
         uses: docker/build-push-action@v4
         with:
+          permissions: write-all
           context: .
           push: true
           tags: ghcr.io/tylermarques/u-the-bomb-com:${{ github.sha }}
