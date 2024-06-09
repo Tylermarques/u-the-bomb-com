@@ -10,5 +10,5 @@ spec:
       match: Host(`dev.u-the-bomb.com`)
       priority: 10
       services:
-        - name: dev-u-the-bomb-com
+        - name: u-the-bomb-com-dev
           port: 3000
