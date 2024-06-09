@@ -3,7 +3,7 @@ name: Build and Publish Docker Image
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
           permissions: write-all
           context: .
           push: true
-          tags: ghcr.io/tylermarques/u-the-bomb-com:prod
+          tags: ghcr.io/tylermarques/u-the-bomb-com:dev
 
       - name: Post build info
         run: echo "Docker image has been built and pushed to Docker Hub."
