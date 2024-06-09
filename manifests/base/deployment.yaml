@@ -22,10 +22,6 @@ spec:
       labels:
         app: u-the-bomb
     spec:
-      # initContainers:
-      # Init containers are exactly like regular containers, except:
-      # - Init containers always run to completion.
-      # - Each init container must complete successfully before the next one starts.
       containers:
         name: u-the-bomb
         image: ghcr.io/tylermarques/u-the-bomb-com:latest
