@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: u-the-bomb
+  name: u-the-bomb-com
   namespace: default
   labels:
-    app: u-the-bomb
+    app: u-the-bomb-com
 spec:
   selector:
     matchLabels:
-      app: u-the-bomb
+      app: u-the-bomb-com
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,13 +18,13 @@ spec:
   template:
     metadata:
       annotations:
-        kubectl.kubernetes.io/default-container: u-the-bomb
+        kubectl.kubernetes.io/default-container: u-the-bomb-com
       labels:
-        app: u-the-bomb
+        app: u-the-bomb-com
     spec:
       containers:
-        name: u-the-bomb
-        image: ghcr.io/tylermarques/u-the-bomb-com:latest
+        name: u-the-bomb-com
+        image: u-the-bomb-com
         restartPolicy: Always
         ports:
           - containerPort: 3000

@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: u-the-bomb
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`prod.u-the-bomb.com`)
+      priority: 10
+      services:
+        - name: u-the-bomb-com
+          port: 3000

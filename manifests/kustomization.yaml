@@ -1,4 +1,4 @@
 resources:
   - ./dev
   - ./production
-namePrefix: cluster-a
+namePrefix: homelab-
