@@ -1,5 +1,6 @@
 resources:
   - ./../base
+  - ./ingress.yaml
 namePrefix: prod-
 namespace: u-the-bomb-com-prod
 images:
