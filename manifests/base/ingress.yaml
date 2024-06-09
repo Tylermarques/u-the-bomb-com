@@ -1,8 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: u-the-bomb
-  namespace: default
+  name: u-the-bomb-com
 spec:
   entryPoints:
     - websecure
