@@ -7,7 +7,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`prod.u-the-bomb.com`)
+      match: Host(`u-the-bomb.com`)
       priority: 10
       services:
         - name: prod-u-the-bomb-com
