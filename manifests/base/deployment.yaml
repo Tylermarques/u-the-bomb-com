@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: u-the-bomb
+  namespace: default
+  labels:
+    app: u-the-bomb
+spec:
+  selector:
+    matchLabels:
+      app: u-the-bomb
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: u-the-bomb
+      labels:
+        app: u-the-bomb
+    spec:
+      # initContainers:
+      # Init containers are exactly like regular containers, except:
+      # - Init containers always run to completion.
+      # - Each init container must complete successfully before the next one starts.
+      containers:
+        name: u-the-bomb
+        image: ghcr.io/tylermarques/u-the-bomb-com:latest
+        restartPolicy: Always
+        ports:
+          - containerPort: 3000
+            name: http
+            protocol: TCP
