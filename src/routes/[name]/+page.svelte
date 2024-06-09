@@ -2,6 +2,7 @@
 	export let data;
 	import { onMount } from 'svelte';
 	import confetti from 'canvas-confetti';
+	import BackArrow from '$lib/components/BackArrow.svelte';
 
 	let name = atob(data.name_hash);
 	function randomInRange(min: number, max: number) {
@@ -18,16 +19,19 @@
 	}
 
 	onMount(() => {
-		setInterval(start_fireworks, 378);
-		setInterval(start_fireworks, 609);
+		// setInterval(start_fireworks, 378);
+		// setInterval(start_fireworks, 609);
 	});
 </script>
 
-<div class="flex flex-col items-center space-y-10 justify-center h-screen">
-	<h1 class="text-8xl font-bold">{name}</h1>
-	<div class="flex flex-row items-center text-4xl font-bold">
-		<p class="animate-bounce">💣</p>
-		<p>U the Bomb.com</p>
-		<p class="animate-bounce">💣</p>
+<div>
+	<BackArrow />
+	<div class="flex flex-col items-center space-y-10 justify-center h-screen">
+		<h1 class="text-8xl font-bold">{name}</h1>
+		<div class="flex flex-row items-center text-4xl font-bold">
+			<p class="animate-bounce">💣</p>
+			<p>U the Bomb.com</p>
+			<p class="animate-bounce">💣</p>
+		</div>
 	</div>
 </div>
