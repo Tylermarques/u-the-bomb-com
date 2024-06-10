@@ -24,6 +24,7 @@ spec:
     spec:
       containers:
         - name: u-the-bomb-com
+          imagePullPolicy: Always
           image: u-the-bomb-com
           ports:
             - containerPort: 3000
@@ -31,4 +32,3 @@ spec:
               protocol: TCP
       imagePullSecrets:
         - name: gchrio-cred
-      imagePullPolicy: Always
