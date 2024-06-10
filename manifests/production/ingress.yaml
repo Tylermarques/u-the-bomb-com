@@ -4,7 +4,7 @@ metadata:
   name: u-the-bomb-com
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
     - kind: Rule
       match: Host(`u-the-bomb.com`)
