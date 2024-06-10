@@ -18,7 +18,18 @@
 		});
 	}
 
+	function stop_fireworks() {
+		// Get a reference to the last interval + 1
+		const interval_id = window.setInterval(function () {}, Number.MAX_SAFE_INTEGER);
+
+		// Clear any timeout/interval up to that id
+		for (let i = 1; i < interval_id; i++) {
+			window.clearInterval(i);
+		}
+	}
+
 	onMount(() => {
+		stop_fireworks();
 		setInterval(start_fireworks, 378);
 		setInterval(start_fireworks, 609);
 	});
@@ -27,8 +38,10 @@
 <div>
 	<BackArrow />
 	<div class="flex flex-col items-center space-y-10 justify-center h-screen">
-		<h1 class="text-8xl font-bold">{name}</h1>
-		<div class="flex flex-row items-center text-4xl font-bold">
+		<div class="text-5xl md:text-6xl lg:text-8xl flex text-center flex-row items-center font-bold">
+			<p>{name}</p>
+		</div>
+		<div class="text-2xl md:text-4xl lg:text-5xl flex flex-row items-center font-bold">
 			<p class="animate-bounce">💣</p>
 			<p>U the Bomb.com</p>
 			<p class="animate-bounce">💣</p>
