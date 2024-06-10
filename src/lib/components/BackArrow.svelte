@@ -1,4 +1,10 @@
-<div class="backarrow absolute top-2, left-0">
+<script lang="ts">
+	function goHome() {
+		window.location.href = '/';
+	}
+</script>
+
+<div on:mouseup={goHome} role="button" tabindex="0" class="backarrow absolute top-2, left-0">
 	<svg width="2em" height="2em" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
 		<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24">
 			<g
