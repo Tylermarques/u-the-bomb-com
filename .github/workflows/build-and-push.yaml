@@ -29,7 +29,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/tylermarques/u-the-bomb-com:${{ github.sha }} ghcr.io/tylermarques/u-the-bomb-com:prod
+          tags: ghcr.io/tylermarques/u-the-bomb-com:${{ github.sha }}
           cache-from: type=registry,ref=user/app:latest
           cache-to: type=inline
 
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: tylermarques/homelab-infra
           ref: main
