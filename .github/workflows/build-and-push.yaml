@@ -39,5 +39,24 @@ jobs:
           push: true
           tags: ghcr.io/tylermarques/u-the-bomb-com:prod
 
-      - name: Post build info
-        run: echo "Docker image has been built and pushed to Docker Hub."
+  update-manifests:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          repository: tylermarques/homelab-infra
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Manifests
+        run: |
+          apt update && apt install -y yq
+          cd homelab-infra
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          yq e '(.images[] | select(.name == "u-the-bomb-com") | .newTag) = "'${{ github.sha }}'"' apps/u-the-bomb-com/prod/kustomization.yaml -i
+          git commit -am 'Increment image tag'
+          git commit -m "Update manifests"
+          git push
