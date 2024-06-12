@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-actions
 
     steps:
       - name: Checkout code
@@ -36,6 +37,7 @@ jobs:
   update-manifests:
     needs: build
     runs-on: ubuntu-latest
+    environment: github-actions
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
