@@ -31,8 +31,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/tylermarques/u-the-bomb-com:${{ github.sha }}
-          cache-from: type=registry,ref=user/app:latest
-          cache-to: type=inline
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   update-manifests:
     needs: build
